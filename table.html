@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tables</title>
+</head>
+<body>
+
+if ($result->num_rows > 0) {
+
+// output data of each row
+while($row = $result->fetch_assoc()) {
+
+echo "<tr><td>" . $row["userinfo_id"]
+    . "</td><td>" . $row["userinfo_name"]
+    . "</td><td>" . $row["userinfo_position"]
+    . "</td><td>" . $row["userinfo_region"]
+    . "</td><td>" . $row["userinfo_age"]
+    . "</td><td>" . $row["userinfo_begin_date"]
+    . "</td></tr>";
+}
+echo "</tbody>";
+
+} else { echo "0 results"; }
+$conn->close();
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+.table {
+    font-size: 0;
+    margin-top: 5px;
+}
+.table__td {
+    cursor: pointer;
+    font: 14px sans-serif;
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.table__td + .table__td {
+    margin-left: 5px;
+}
+
+.table__td:hover {
+    background-color: #f5f5f5;
+}
+
+hr {
+    height: 1px;
+    margin: 15px 0;
+    background-color: #ccc;
+    color: #ccc;
+    border: none;
+}
