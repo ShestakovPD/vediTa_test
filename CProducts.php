@@ -1,5 +1,6 @@
 <?php
-require_once"db.php";
+require_once "db.php";
+
 class CProducts
 {
     public static function Products($conn, $amount)
@@ -12,29 +13,32 @@ class CProducts
     {
         function myCmp($a, $b)
         {
-            if ($a["DATE_CREATE"] == $b["DATE_CREATE"]) return 0;
+            if ($a["DATE_CREATE"] == $b["DATE_CREATE"]) {
+                return 0;
+            }
             return $a["DATE_CREATE"] > $b["DATE_CREATE"] ? 1 : -1;
         }
+
         usort($Pr_act, "myCmp");
-        return $Products_d=$Pr_act;
+        return $Products_d = $Pr_act;
 
     }
 
-    public static function QuantityAction($conn,$id,$qu)
+    public static function QuantityAction($conn, $id, $qu)
     {
         if ($qu > 0) {
             $sql = $conn->query("UPDATE Products SET `PRODUCT_QUANTITY`=`PRODUCT_QUANTITY`+1 WHERE id='$id'");
             $res = $sql->fetch(PDO::FETCH_ASSOC);
-        }
-        elseif ($qu < 0) {
+        } elseif ($qu < 0) {
             $sql = $conn->query("UPDATE Products SET `PRODUCT_QUANTITY`=`PRODUCT_QUANTITY`-1 WHERE id='$id'");
             $res = $sql->fetch(PDO::FETCH_ASSOC);
+        } else {
+            echo "Что то не то";
         }
-        else {echo "Что то не то";}
         return $res;
     }
 
-    public static function HiddenAction($conn,$id,$pub)
+    public static function HiddenAction($conn, $id, $pub)
     {
         $sql = $conn->query("UPDATE Products SET `pub`='$pub' WHERE id='$id'");
         $res = $sql->fetch(PDO::FETCH_ASSOC);

@@ -1,9 +1,9 @@
 <?php
 require "CProducts.php";
-require_once"db.php";
+require_once "db.php";
 
-$id=$_POST['id'];
+$id = $_POST['id'];
 
 CProducts::QuantityAction($conn, $id, -1);
 
-header ('Location: index.php');
+header('Location: index.php');
