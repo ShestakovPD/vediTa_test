@@ -1,5 +1,5 @@
 <?
-require("db.php");
+require_once("db.php");
 
 if(isset($_POST['id'])){$id = $_POST['id'];}
 
@@ -30,7 +30,7 @@ else{
 }
 /*@$sqlPublicObj = mysql_fetch_array($sqlPublicTitle);*/
 
-@$sqlPublicObj = $sqlPublicTitle->fetch(PDO::FETCH_ASSOC);
+$sqlPublicObj = $sqlPublicTitle->fetch(PDO::FETCH_ASSOC);
 
 echo json_encode($sqlPublicObj); 
 ?>
